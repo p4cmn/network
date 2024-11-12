@@ -15,6 +15,7 @@ private:
 signals:
     void createTransmitterClicked();
     void createReceiverClicked();
+    void createStationClicked();
     void closeAllClicked();
 
 public:

@@ -42,9 +42,12 @@ constexpr auto qt_meta_stringdata_CLASSMainModelENDCLASS = QtMocHelpers::stringD
     "view",
     "receiverAdded",
     "ReceiverView*",
+    "stationAdded",
+    "StationView*",
     "allRemoved",
     "addTransmitter",
     "addReceiver",
+    "addStation",
     "removeAll"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -58,29 +61,33 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   50,    2, 0x06,    1 /* Public */,
-       5,    1,   53,    2, 0x06,    3 /* Public */,
-       7,    0,   56,    2, 0x06,    5 /* Public */,
+       1,    1,   62,    2, 0x06,    1 /* Public */,
+       5,    1,   65,    2, 0x06,    3 /* Public */,
+       7,    1,   68,    2, 0x06,    5 /* Public */,
+       9,    0,   71,    2, 0x06,    7 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       8,    0,   57,    2, 0x0a,    6 /* Public */,
-       9,    0,   58,    2, 0x0a,    7 /* Public */,
-      10,    0,   59,    2, 0x0a,    8 /* Public */,
+      10,    0,   72,    2, 0x0a,    8 /* Public */,
+      11,    0,   73,    2, 0x0a,    9 /* Public */,
+      12,    0,   74,    2, 0x0a,   10 /* Public */,
+      13,    0,   75,    2, 0x0a,   11 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 6,    4,
+    QMetaType::Void, 0x80000000 | 8,    4,
     QMetaType::Void,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -103,11 +110,16 @@ Q_CONSTINIT const QMetaObject MainModel::staticMetaObject = { {
         // method 'receiverAdded'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<ReceiverView *, std::false_type>,
+        // method 'stationAdded'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<StationView *, std::false_type>,
         // method 'allRemoved'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'addTransmitter'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'addReceiver'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'addStation'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'removeAll'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
@@ -123,10 +135,12 @@ void MainModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: _t->transmitterAdded((*reinterpret_cast< std::add_pointer_t<TransmitterView*>>(_a[1]))); break;
         case 1: _t->receiverAdded((*reinterpret_cast< std::add_pointer_t<ReceiverView*>>(_a[1]))); break;
-        case 2: _t->allRemoved(); break;
-        case 3: _t->addTransmitter(); break;
-        case 4: _t->addReceiver(); break;
-        case 5: _t->removeAll(); break;
+        case 2: _t->stationAdded((*reinterpret_cast< std::add_pointer_t<StationView*>>(_a[1]))); break;
+        case 3: _t->allRemoved(); break;
+        case 4: _t->addTransmitter(); break;
+        case 5: _t->addReceiver(); break;
+        case 6: _t->addStation(); break;
+        case 7: _t->removeAll(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -144,6 +158,13 @@ void MainModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< ReceiverView* >(); break;
+            }
+            break;
+        case 2:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< StationView* >(); break;
             }
             break;
         }
@@ -164,9 +185,16 @@ void MainModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             }
         }
         {
+            using _t = void (MainModel::*)(StationView * );
+            if (_t _q_method = &MainModel::stationAdded; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 2;
+                return;
+            }
+        }
+        {
             using _t = void (MainModel::*)();
             if (_t _q_method = &MainModel::allRemoved; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 2;
+                *result = 3;
                 return;
             }
         }
@@ -192,13 +220,13 @@ int MainModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }
@@ -218,8 +246,15 @@ void MainModel::receiverAdded(ReceiverView * _t1)
 }
 
 // SIGNAL 2
+void MainModel::stationAdded(StationView * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 2, _a);
+}
+
+// SIGNAL 3
 void MainModel::allRemoved()
 {
-    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 QT_WARNING_POP

@@ -107,13 +107,8 @@ QByteArray extractDataSegment(const QByteArray &buffer) {
     return buffer.mid(FLAG_SIZE + 2 * ADDRESS_SIZE, DATA_SIZE);
 }
 
-// bool verifyFCS(const QByteArray& dataSegment, const QByteArray& receivedFCS) {
-//     QByteArray calculatedFCS = createFCS(dataSegment);
-//     return receivedFCS == calculatedFCS;
-// }
-
 void printFrameStructure(const QByteArray &frame, bool isTransmit, bool isCollision) {
-    QString prefix = isTransmit ? (isCollision ? "+" : "-") : "r";
+    QString prefix = isTransmit ? (isCollision ? "c" : "t") : "r";
 
     QByteArray flag = frame.left(FLAG_SIZE);
     uint8_t srcAddr = static_cast<uint8_t>(frame[FLAG_SIZE]);

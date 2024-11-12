@@ -28,7 +28,7 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
-    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_5;
     QFrame *frame_3;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_4;
@@ -49,6 +49,16 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QPushButton *createReceiverButton;
     QSpacerItem *horizontalSpacer_4;
+    QFrame *frame_4;
+    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_6;
+    QSpacerItem *horizontalSpacer_13;
+    QLabel *label_3;
+    QSpacerItem *horizontalSpacer_14;
+    QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer_11;
+    QPushButton *createStationButton;
+    QSpacerItem *horizontalSpacer_12;
     QFrame *frame;
     QVBoxLayout *verticalLayout_3;
     QSpacerItem *verticalSpacer;
@@ -64,11 +74,11 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(235, 359);
+        MainWindow->resize(236, 389);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        verticalLayout_4 = new QVBoxLayout(centralwidget);
-        verticalLayout_4->setObjectName("verticalLayout_4");
+        verticalLayout_5 = new QVBoxLayout(centralwidget);
+        verticalLayout_5->setObjectName("verticalLayout_5");
         frame_3 = new QFrame(centralwidget);
         frame_3->setObjectName("frame_3");
         frame_3->setFrameShape(QFrame::Shape::StyledPanel);
@@ -112,7 +122,7 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
 
-        verticalLayout_4->addWidget(frame_3);
+        verticalLayout_5->addWidget(frame_3);
 
         frame_2 = new QFrame(centralwidget);
         frame_2->setObjectName("frame_2");
@@ -157,7 +167,52 @@ public:
         verticalLayout_2->addLayout(horizontalLayout_2);
 
 
-        verticalLayout_4->addWidget(frame_2);
+        verticalLayout_5->addWidget(frame_2);
+
+        frame_4 = new QFrame(centralwidget);
+        frame_4->setObjectName("frame_4");
+        frame_4->setFrameShape(QFrame::Shape::StyledPanel);
+        frame_4->setFrameShadow(QFrame::Shadow::Raised);
+        verticalLayout_4 = new QVBoxLayout(frame_4);
+        verticalLayout_4->setObjectName("verticalLayout_4");
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_13);
+
+        label_3 = new QLabel(frame_4);
+        label_3->setObjectName("label_3");
+
+        horizontalLayout_6->addWidget(label_3);
+
+        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_6->addItem(horizontalSpacer_14);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_6);
+
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName("horizontalLayout_7");
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_11);
+
+        createStationButton = new QPushButton(frame_4);
+        createStationButton->setObjectName("createStationButton");
+
+        horizontalLayout_7->addWidget(createStationButton);
+
+        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_7->addItem(horizontalSpacer_12);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_7);
+
+
+        verticalLayout_5->addWidget(frame_4);
 
         frame = new QFrame(centralwidget);
         frame->setObjectName("frame");
@@ -192,12 +247,12 @@ public:
         verticalLayout_3->addItem(verticalSpacer_2);
 
 
-        verticalLayout_4->addWidget(frame);
+        verticalLayout_5->addWidget(frame);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 235, 21));
+        menubar->setGeometry(QRect(0, 0, 236, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -215,6 +270,8 @@ public:
         createTransmitterButton->setText(QCoreApplication::translate("MainWindow", "Create", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "Receiver", nullptr));
         createReceiverButton->setText(QCoreApplication::translate("MainWindow", "Create", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Station", nullptr));
+        createStationButton->setText(QCoreApplication::translate("MainWindow", "Create", nullptr));
         closeAll->setText(QCoreApplication::translate("MainWindow", "Delete all", nullptr));
     } // retranslateUi
 

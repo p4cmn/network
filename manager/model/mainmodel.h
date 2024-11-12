@@ -6,6 +6,8 @@
 #include "transmitter/controller/transmittercontroller.h"
 #include "receiver/view/receiverview.h"
 #include "receiver/controller/receivercontroller.h"
+#include "station/view/stationview.h"
+#include "station/controller/stationcontroller.h"
 
 class MainModel : public QObject {
     Q_OBJECT
@@ -17,11 +19,13 @@ public:
 public slots:
     void addTransmitter();
     void addReceiver();
+    void addStation();
     void removeAll();
 
 signals:
     void transmitterAdded(TransmitterView* view);
     void receiverAdded(ReceiverView* view);
+    void stationAdded(StationView* view);
     void allRemoved();
 
 private:
@@ -29,4 +33,6 @@ private:
     QList<TransmitterController*> transmitterControllers;
     QList<ReceiverView*> receiverViews;
     QList<ReceiverController*> receiverControllers;
+    QList<StationView*> stationViews;
+    QList<StationController*> stationControllers;
 };

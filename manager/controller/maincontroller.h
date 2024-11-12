@@ -17,11 +17,13 @@ public:
 signals:
     void requestAddTransmitter();
     void requestAddReceiver();
+    void requestAddStation();
     void requestRemoveAll();
 
 private slots:
     void handleTransmitterAdded(TransmitterView* view);
     void handleReceiverAdded(ReceiverView* view);
+    void handleStationAdded(StationView* view);
     void handleAllRemoved();
 
 };

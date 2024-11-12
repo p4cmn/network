@@ -15,6 +15,9 @@ SOURCES += \
     receiver/controller/receivercontroller.cpp \
     receiver/model/receivermodel.cpp \
     receiver/view/receiverview.cpp \
+    station/controller/stationcontroller.cpp \
+    station/model/stationmodel.cpp \
+    station/view/stationview.cpp \
     transmitter/controller/transmittercontroller.cpp \
     transmitter/model/transmittermodel.cpp \
     transmitter/view/transmitterview.cpp
@@ -29,6 +32,9 @@ HEADERS += \
     receiver/controller/receivercontroller.h \
     receiver/model/receivermodel.h \
     receiver/view/receiverview.h \
+    station/controller/stationcontroller.h \
+    station/model/stationmodel.h \
+    station/view/stationview.h \
     transmitter/controller/transmittercontroller.h \
     transmitter/model/transmittermodel.h \
     transmitter/view/transmitterview.h
@@ -36,6 +42,7 @@ HEADERS += \
 FORMS += \
     manager/view/mainwindow.ui \
     receiver/view/receiverview.ui \
+    station/view/stationview.ui \
     transmitter/view/transmitterview.ui
 
 # Default rules for deployment.

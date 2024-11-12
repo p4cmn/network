@@ -22,6 +22,14 @@ void MainModel::addReceiver() {
     emit receiverAdded(view);
 }
 
+void MainModel::addStation() {
+    auto *view = new StationView;
+    auto *controller = new StationController(view);
+    stationViews.append(view);
+    stationControllers.append(controller);
+    emit stationAdded(view);
+}
+
 void MainModel::removeAll() {
     for (auto *view : transmitterViews) {
         view->close();
@@ -44,6 +52,17 @@ void MainModel::removeAll() {
         delete controller;
     }
     receiverControllers.clear();
+
+    for (auto *view : stationViews) {
+        view->close();
+        delete view;
+    }
+    stationViews.clear();
+
+    for (auto *controller : stationControllers) {
+        delete controller;
+    }
+    stationControllers.clear();
 
     emit allRemoved();
 }

@@ -35,10 +35,11 @@ void ReceiverModel::readData() {
         QByteArray temp = serialPort->read(1);
         char byte = temp[0];
         bool isFrameComplete;
-        QByteArray dataSegment = defragmentData(byte, isFrameComplete);
+        receivedData = defragmentData(byte, isFrameComplete);
 
         if (isFrameComplete) {
-            emit dataReceived(dataSegment);
+            emit dataReceived(receivedData);
+            receivedData.clear();
         }
     }
 }

@@ -39,12 +39,15 @@ constexpr auto qt_meta_stringdata_CLASSMainControllerENDCLASS = QtMocHelpers::st
     "requestAddTransmitter",
     "",
     "requestAddReceiver",
+    "requestAddStation",
     "requestRemoveAll",
     "handleTransmitterAdded",
     "TransmitterView*",
     "view",
     "handleReceiverAdded",
     "ReceiverView*",
+    "handleStationAdded",
+    "StationView*",
     "handleAllRemoved"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -58,31 +61,35 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainControllerENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x06,    1 /* Public */,
-       3,    0,   51,    2, 0x06,    2 /* Public */,
-       4,    0,   52,    2, 0x06,    3 /* Public */,
+       1,    0,   62,    2, 0x06,    1 /* Public */,
+       3,    0,   63,    2, 0x06,    2 /* Public */,
+       4,    0,   64,    2, 0x06,    3 /* Public */,
+       5,    0,   65,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    1,   53,    2, 0x08,    4 /* Private */,
-       8,    1,   56,    2, 0x08,    6 /* Private */,
-      10,    0,   59,    2, 0x08,    8 /* Private */,
+       6,    1,   66,    2, 0x08,    5 /* Private */,
+       9,    1,   69,    2, 0x08,    7 /* Private */,
+      11,    1,   72,    2, 0x08,    9 /* Private */,
+      13,    0,   75,    2, 0x08,   11 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 6,    7,
-    QMetaType::Void, 0x80000000 | 9,    7,
+    QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, 0x80000000 | 10,    8,
+    QMetaType::Void, 0x80000000 | 12,    8,
     QMetaType::Void,
 
        0        // eod
@@ -101,6 +108,8 @@ Q_CONSTINIT const QMetaObject MainController::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'requestAddReceiver'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'requestAddStation'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'requestRemoveAll'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'handleTransmitterAdded'
@@ -109,6 +118,9 @@ Q_CONSTINIT const QMetaObject MainController::staticMetaObject = { {
         // method 'handleReceiverAdded'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<ReceiverView *, std::false_type>,
+        // method 'handleStationAdded'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<StationView *, std::false_type>,
         // method 'handleAllRemoved'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -123,27 +135,36 @@ void MainController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->requestAddTransmitter(); break;
         case 1: _t->requestAddReceiver(); break;
-        case 2: _t->requestRemoveAll(); break;
-        case 3: _t->handleTransmitterAdded((*reinterpret_cast< std::add_pointer_t<TransmitterView*>>(_a[1]))); break;
-        case 4: _t->handleReceiverAdded((*reinterpret_cast< std::add_pointer_t<ReceiverView*>>(_a[1]))); break;
-        case 5: _t->handleAllRemoved(); break;
+        case 2: _t->requestAddStation(); break;
+        case 3: _t->requestRemoveAll(); break;
+        case 4: _t->handleTransmitterAdded((*reinterpret_cast< std::add_pointer_t<TransmitterView*>>(_a[1]))); break;
+        case 5: _t->handleReceiverAdded((*reinterpret_cast< std::add_pointer_t<ReceiverView*>>(_a[1]))); break;
+        case 6: _t->handleStationAdded((*reinterpret_cast< std::add_pointer_t<StationView*>>(_a[1]))); break;
+        case 7: _t->handleAllRemoved(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 3:
+        case 4:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< TransmitterView* >(); break;
             }
             break;
-        case 4:
+        case 5:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< ReceiverView* >(); break;
+            }
+            break;
+        case 6:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< StationView* >(); break;
             }
             break;
         }
@@ -165,8 +186,15 @@ void MainController::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         }
         {
             using _t = void (MainController::*)();
-            if (_t _q_method = &MainController::requestRemoveAll; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &MainController::requestAddStation; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
+                return;
+            }
+        }
+        {
+            using _t = void (MainController::*)();
+            if (_t _q_method = &MainController::requestRemoveAll; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 3;
                 return;
             }
         }
@@ -192,13 +220,13 @@ int MainController::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }
@@ -216,8 +244,14 @@ void MainController::requestAddReceiver()
 }
 
 // SIGNAL 2
-void MainController::requestRemoveAll()
+void MainController::requestAddStation()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
+}
+
+// SIGNAL 3
+void MainController::requestRemoveAll()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
 }
 QT_WARNING_POP

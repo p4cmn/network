@@ -8,6 +8,9 @@ release/frameprocessing.o
 release/receivercontroller.o
 release/receivermodel.o
 release/receiverview.o
+release/stationcontroller.o
+release/stationmodel.o
+release/stationview.o
 release/transmittercontroller.o
 release/transmittermodel.o
 release/transmitterview.o
@@ -17,6 +20,9 @@ release/moc_mainwindow.o
 release/moc_receivercontroller.o
 release/moc_receivermodel.o
 release/moc_receiverview.o
+release/moc_stationcontroller.o
+release/moc_stationmodel.o
+release/moc_stationview.o
 release/moc_transmittercontroller.o
 release/moc_transmittermodel.o
 release/moc_transmitterview.o

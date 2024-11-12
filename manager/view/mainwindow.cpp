@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->createTransmitterButton, &QPushButton::clicked, this, &MainWindow::createTransmitterClicked);
     connect(ui->createReceiverButton, &QPushButton::clicked, this, &MainWindow::createReceiverClicked);
+    connect(ui->createStationButton, &QPushButton::clicked, this, &MainWindow::createStationClicked);
     connect(ui->closeAll, &QPushButton::clicked, this, &MainWindow::closeAllClicked);
 }
 
