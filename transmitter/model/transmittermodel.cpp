@@ -36,11 +36,20 @@ void TransmitterModel::configurePort(const QString &portName) {
     openPort(portName);
 }
 
-void TransmitterModel::transmitData(const QByteArray &data) {
-    uint8_t sourceAddress = static_cast<uint8_t>(serialPort->portName().remove("COM").toInt());
-    uint8_t destinationAddress = 0;
-    QList<QByteArray> frames = fragmentData(data, sourceAddress, destinationAddress);
-
+void TransmitterModel::transmitData(const QByteArray &data,
+                                    uint8_t sourceAddress,
+                                    uint8_t destinationAddress,
+                                    uint8_t priority,
+                                    uint8_t reservation,
+                                    uint8_t isToken,
+                                    uint8_t monitorBit) {
+    QList<QByteArray> frames = fragmentData(data,
+                                            sourceAddress,
+                                            destinationAddress,
+                                            priority,
+                                            reservation,
+                                            isToken,
+                                            monitorBit);
     for(const auto& frame: frames) {
         printFrameStructure(frame, true, false);
         serialPort->write(frame);

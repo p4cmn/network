@@ -16,4 +16,3 @@ public:
     explicit StationController(StationView *view, QObject *parent = nullptr);
     ~StationController();
 };
-

@@ -36,10 +36,9 @@ void ReceiverModel::readData() {
         char byte = temp[0];
         bool isFrameComplete;
         receivedData = defragmentData(byte, isFrameComplete);
-
         if (isFrameComplete) {
+            qDebug() << receivedData.destinationAddress << " received";
             emit dataReceived(receivedData);
-            receivedData.clear();
         }
     }
 }

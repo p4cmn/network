@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
@@ -59,8 +60,16 @@ public:
     QSpacerItem *horizontalSpacer_22;
     QHBoxLayout *horizontalLayout_14;
     QSpacerItem *horizontalSpacer_27;
-    QComboBox *stationNumberComboBox;
+    QComboBox *sourceAddressComboBox;
     QSpacerItem *horizontalSpacer_28;
+    QHBoxLayout *horizontalLayout_18;
+    QSpacerItem *horizontalSpacer_33;
+    QLabel *label_3;
+    QSpacerItem *horizontalSpacer_32;
+    QHBoxLayout *horizontalLayout_19;
+    QSpacerItem *horizontalSpacer_34;
+    QComboBox *destinationAddressComboBox;
+    QSpacerItem *horizontalSpacer_35;
     QHBoxLayout *horizontalLayout_12;
     QSpacerItem *horizontalSpacer_23;
     QLabel *Station;
@@ -69,6 +78,14 @@ public:
     QSpacerItem *horizontalSpacer_25;
     QComboBox *stationPriorityComboBox;
     QSpacerItem *horizontalSpacer_26;
+    QHBoxLayout *horizontalLayout_20;
+    QSpacerItem *horizontalSpacer_36;
+    QCheckBox *monitoreCheckBox;
+    QSpacerItem *horizontalSpacer_37;
+    QHBoxLayout *horizontalLayout_21;
+    QSpacerItem *horizontalSpacer_38;
+    QPushButton *cycleButton;
+    QSpacerItem *horizontalSpacer_39;
     QFrame *frame_2;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_6;
@@ -108,7 +125,7 @@ public:
     {
         if (StationView->objectName().isEmpty())
             StationView->setObjectName("StationView");
-        StationView->resize(550, 550);
+        StationView->resize(409, 544);
         verticalLayout_7 = new QVBoxLayout(StationView);
         verticalLayout_7->setObjectName("verticalLayout_7");
         horizontalLayout_5 = new QHBoxLayout();
@@ -243,10 +260,10 @@ public:
 
         horizontalLayout_14->addItem(horizontalSpacer_27);
 
-        stationNumberComboBox = new QComboBox(frame_5);
-        stationNumberComboBox->setObjectName("stationNumberComboBox");
+        sourceAddressComboBox = new QComboBox(frame_5);
+        sourceAddressComboBox->setObjectName("sourceAddressComboBox");
 
-        horizontalLayout_14->addWidget(stationNumberComboBox);
+        horizontalLayout_14->addWidget(sourceAddressComboBox);
 
         horizontalSpacer_28 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
 
@@ -254,6 +271,42 @@ public:
 
 
         verticalLayout_5->addLayout(horizontalLayout_14);
+
+        horizontalLayout_18 = new QHBoxLayout();
+        horizontalLayout_18->setObjectName("horizontalLayout_18");
+        horizontalSpacer_33 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_18->addItem(horizontalSpacer_33);
+
+        label_3 = new QLabel(frame_5);
+        label_3->setObjectName("label_3");
+
+        horizontalLayout_18->addWidget(label_3);
+
+        horizontalSpacer_32 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_18->addItem(horizontalSpacer_32);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_18);
+
+        horizontalLayout_19 = new QHBoxLayout();
+        horizontalLayout_19->setObjectName("horizontalLayout_19");
+        horizontalSpacer_34 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_19->addItem(horizontalSpacer_34);
+
+        destinationAddressComboBox = new QComboBox(frame_5);
+        destinationAddressComboBox->setObjectName("destinationAddressComboBox");
+
+        horizontalLayout_19->addWidget(destinationAddressComboBox);
+
+        horizontalSpacer_35 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_19->addItem(horizontalSpacer_35);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_19);
 
         horizontalLayout_12 = new QHBoxLayout();
         horizontalLayout_12->setObjectName("horizontalLayout_12");
@@ -290,6 +343,42 @@ public:
 
 
         verticalLayout_5->addLayout(horizontalLayout_13);
+
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setObjectName("horizontalLayout_20");
+        horizontalSpacer_36 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_20->addItem(horizontalSpacer_36);
+
+        monitoreCheckBox = new QCheckBox(frame_5);
+        monitoreCheckBox->setObjectName("monitoreCheckBox");
+
+        horizontalLayout_20->addWidget(monitoreCheckBox);
+
+        horizontalSpacer_37 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_20->addItem(horizontalSpacer_37);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_20);
+
+        horizontalLayout_21 = new QHBoxLayout();
+        horizontalLayout_21->setObjectName("horizontalLayout_21");
+        horizontalSpacer_38 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_38);
+
+        cycleButton = new QPushButton(frame_5);
+        cycleButton->setObjectName("cycleButton");
+
+        horizontalLayout_21->addWidget(cycleButton);
+
+        horizontalSpacer_39 = new QSpacerItem(40, 20, QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Minimum);
+
+        horizontalLayout_21->addItem(horizontalSpacer_39);
+
+
+        verticalLayout_5->addLayout(horizontalLayout_21);
 
 
         horizontalLayout_17->addWidget(frame_5);
@@ -469,7 +558,10 @@ public:
         configurationLabel->setText(QCoreApplication::translate("StationView", "Configuration", nullptr));
         receiverLabel->setText(QCoreApplication::translate("StationView", "Receiver port", nullptr));
         stationNumber->setText(QCoreApplication::translate("StationView", "Station number", nullptr));
+        label_3->setText(QCoreApplication::translate("StationView", "Destination station", nullptr));
         Station->setText(QCoreApplication::translate("StationView", "Station priority", nullptr));
+        monitoreCheckBox->setText(QCoreApplication::translate("StationView", "Monitore", nullptr));
+        cycleButton->setText(QCoreApplication::translate("StationView", "Cycle", nullptr));
         transmitterLabel->setText(QCoreApplication::translate("StationView", "Transmitter port", nullptr));
         configButton->setText(QCoreApplication::translate("StationView", "Configurate", nullptr));
         label->setText(QCoreApplication::translate("StationView", "Data received:", nullptr));

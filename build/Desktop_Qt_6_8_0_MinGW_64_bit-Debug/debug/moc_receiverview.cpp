@@ -40,6 +40,7 @@ constexpr auto qt_meta_stringdata_CLASSReceiverViewENDCLASS = QtMocHelpers::stri
     "",
     "portName",
     "displayData",
+    "Frame",
     "data"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -70,7 +71,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSReceiverViewENDCLASS[] = {
     QMetaType::Void, QMetaType::QString,    3,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QByteArray,    5,
+    QMetaType::Void, 0x80000000 | 5,    6,
 
        0        // eod
 };
@@ -89,7 +90,7 @@ Q_CONSTINIT const QMetaObject ReceiverView::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'displayData'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>
+        QtPrivate::TypeAndForceComplete<const Frame &, std::false_type>
     >,
     nullptr
 } };
@@ -101,7 +102,7 @@ void ReceiverView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         (void)_t;
         switch (_id) {
         case 0: _t->configurePort((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 1: _t->displayData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 1: _t->displayData((*reinterpret_cast< std::add_pointer_t<Frame>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {

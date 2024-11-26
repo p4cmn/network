@@ -23,6 +23,6 @@ ReceiverView::~ReceiverView() {
     delete ui;
 }
 
-void ReceiverView::displayData(const QByteArray &data) {
-    ui->receiveTextEdit->append(data);
+void ReceiverView::displayData(const Frame &data) {
+    ui->receiveTextEdit->append(data.data);
 }

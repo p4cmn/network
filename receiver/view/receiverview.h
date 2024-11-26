@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QWidget>
+#include "processing/frameprocessing.h"
 
 namespace Ui {
 class ReceiverView;
@@ -20,7 +21,7 @@ signals:
     void configurePort(const QString &portName);
 
 public slots:
-    void displayData(const QByteArray &data);
+    void displayData(const Frame &data);
 
 };
 

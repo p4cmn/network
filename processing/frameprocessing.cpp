@@ -5,11 +5,15 @@ constexpr qsizetype FLAG_SIZE = 2;
 constexpr qsizetype ADDRESS_SIZE = 1;
 constexpr qsizetype DATA_SIZE = 10;
 constexpr qsizetype FCS_SIZE = 1;
-constexpr qsizetype FRAME_SIZE = FLAG_SIZE + 2 * ADDRESS_SIZE + DATA_SIZE + FCS_SIZE;
+constexpr qsizetype FRAME_SIZE = FLAG_SIZE + 6 * ADDRESS_SIZE + DATA_SIZE + FCS_SIZE;
 
 QList<QByteArray> fragmentData(const QByteArray &data,
                                uint8_t sourceAddress,
-                               uint8_t destinationAddress) {
+                               uint8_t destinationAddress,
+                               uint8_t priority,
+                               uint8_t reservation,
+                               uint8_t isToken,
+                               uint8_t monitorBit) {
     QList<QByteArray> frames;
     qsizetype totalFrames = (data.size() + DATA_SIZE - 1) / DATA_SIZE;
 
@@ -19,6 +23,12 @@ QList<QByteArray> fragmentData(const QByteArray &data,
         frame.append(createFlag());
         frame.append(createSourceAddress(sourceAddress));
         frame.append(createDestinationAddress(destinationAddress));
+
+        frame.append(static_cast<char>(priority));
+        frame.append(static_cast<char>(reservation));
+        frame.append(static_cast<char>(isToken));
+        frame.append(static_cast<char>(monitorBit));
+
         QByteArray dataSegment = createDataSegment(data, i * DATA_SIZE, DATA_SIZE);
         QByteArray fcs = createFCS(dataSegment);
         distortRandomBit(dataSegment);
@@ -50,7 +60,8 @@ QByteArray createFCS(const QByteArray& data) {
     return generateFCS(data, polynomial);
 }
 
-QByteArray defragmentData(char byte, bool &isFrameComplete) {
+Frame defragmentData(char byte, bool &isFrameComplete) {
+    Frame frame;
     static QByteArray frameBuffer;
     static bool frameStarted = false;
     isFrameComplete = false;
@@ -63,17 +74,30 @@ QByteArray defragmentData(char byte, bool &isFrameComplete) {
     frameBuffer.append(byte);
 
     if (isFrameReady(frameBuffer)) {
-        QByteArray dataSegment = extractDataSegment(frameBuffer);
-        QByteArray receivedFCS = frameBuffer.right(FCS_SIZE);
-        if (decodeAndCorrect(dataSegment, receivedFCS, polynomial, syndromeTable)) {
+        frame.sourceAddress = static_cast<uint8_t>(frameBuffer[FLAG_SIZE]);
+        frame.destinationAddress = static_cast<uint8_t>(frameBuffer[FLAG_SIZE + ADDRESS_SIZE]);
+        frame.priority = static_cast<uint8_t>(frameBuffer[FLAG_SIZE + 2 * ADDRESS_SIZE]);
+        frame.reservation = static_cast<uint8_t>(frameBuffer[FLAG_SIZE + 2 * ADDRESS_SIZE + 1]);
+        frame.isToken = static_cast<uint8_t>(frameBuffer[FLAG_SIZE + 2 * ADDRESS_SIZE + 2]);
+        frame.monitorBit = static_cast<uint8_t>(frameBuffer[FLAG_SIZE + 2 * ADDRESS_SIZE + 3]);
+        qDebug() << frame.sourceAddress
+                 << frame.destinationAddress
+                 << frame.priority
+                 << frame.reservation
+                 << frame.isToken
+                 << frame.monitorBit;
+
+        frame.data = extractDataSegment(frameBuffer);
+        frame.fcs = frameBuffer.right(FCS_SIZE);
+        if (decodeAndCorrect(frame.data, frame.fcs, polynomial, syndromeTable)) {
             isFrameComplete = true;
             printFrameStructure(frameBuffer, false, false);
-            while (!dataSegment.isEmpty() && dataSegment.endsWith('\0')) {
-                dataSegment.chop(1);
+            while (!frame.data.isEmpty() && frame.data.endsWith('\0')) {
+                frame.data.chop(1);
             }
             frameBuffer.clear();
             frameStarted = false;
-            return dataSegment;
+            return frame;
         }
         frameBuffer.clear();
         frameStarted = false;
@@ -104,7 +128,7 @@ bool isFrameReady(const QByteArray &buffer) {
 }
 
 QByteArray extractDataSegment(const QByteArray &buffer) {
-    return buffer.mid(FLAG_SIZE + 2 * ADDRESS_SIZE, DATA_SIZE);
+    return buffer.mid(FLAG_SIZE + 6 * ADDRESS_SIZE, DATA_SIZE);
 }
 
 void printFrameStructure(const QByteArray &frame, bool isTransmit, bool isCollision) {
@@ -113,7 +137,7 @@ void printFrameStructure(const QByteArray &frame, bool isTransmit, bool isCollis
     QByteArray flag = frame.left(FLAG_SIZE);
     uint8_t srcAddr = static_cast<uint8_t>(frame[FLAG_SIZE]);
     uint8_t destAddr = static_cast<uint8_t>(frame[FLAG_SIZE + ADDRESS_SIZE]);
-    QByteArray dataSegment = frame.mid(FLAG_SIZE + 2 * ADDRESS_SIZE, DATA_SIZE);
+    QByteArray dataSegment = frame.mid(FLAG_SIZE + 6 * ADDRESS_SIZE, DATA_SIZE);
     QByteArray fcs = frame.right(FCS_SIZE);
 
     qDebug() << prefix

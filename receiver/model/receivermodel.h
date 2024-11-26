@@ -3,13 +3,14 @@
 #include <QObject>
 #include <QByteArray>
 #include <QSerialPort>
+#include "processing/frameprocessing.h"
 
 class ReceiverModel : public QObject {
     Q_OBJECT
 
 private:
     QSerialPort *serialPort;
-    QByteArray receivedData;
+    Frame receivedData;
 
 public:
     explicit ReceiverModel(QObject *parent = nullptr);
@@ -22,7 +23,7 @@ public slots:
     void configurePort(const QString &portName);
 
 signals:
-    void dataReceived(const QByteArray &data);
+    void dataReceived(const Frame &data);
 
 private slots:
     void readData();

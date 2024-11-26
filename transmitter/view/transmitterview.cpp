@@ -27,7 +27,7 @@ TransmitterView::TransmitterView(QWidget *parent)
     });
 
     connect(ui->transmitButton, &QPushButton::clicked, this, [this]() {
-        emit sendData(ui->transmitTextEdit->toPlainText().toUtf8());
+        emit sendData(ui->transmitTextEdit->toPlainText().toUtf8(), 0, 0);
     });
 }
 

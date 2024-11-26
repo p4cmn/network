@@ -40,7 +40,14 @@ constexpr auto qt_meta_stringdata_CLASSTransmitterModelENDCLASS = QtMocHelpers::
     "",
     "portName",
     "transmitData",
-    "data"
+    "data",
+    "uint8_t",
+    "sourceAddress",
+    "destinationAddress",
+    "priority",
+    "reservation",
+    "isToken",
+    "monitorBit"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -53,7 +60,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSTransmitterModelENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,11 +68,23 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSTransmitterModelENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   26,    2, 0x0a,    1 /* Public */,
-       4,    1,   29,    2, 0x0a,    3 /* Public */,
+       1,    1,   62,    2, 0x0a,    1 /* Public */,
+       4,    7,   65,    2, 0x0a,    3 /* Public */,
+       4,    6,   80,    2, 0x2a,   11 /* Public | MethodCloned */,
+       4,    5,   93,    2, 0x2a,   18 /* Public | MethodCloned */,
+       4,    4,  104,    2, 0x2a,   24 /* Public | MethodCloned */,
+       4,    3,  113,    2, 0x2a,   29 /* Public | MethodCloned */,
+       4,    2,  120,    2, 0x2a,   33 /* Public | MethodCloned */,
+       4,    1,  125,    2, 0x2a,   36 /* Public | MethodCloned */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6,    5,    7,    8,    9,   10,   11,   12,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6,    5,    7,    8,    9,   10,   11,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6,    5,    7,    8,    9,   10,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 6, 0x80000000 | 6, 0x80000000 | 6,    5,    7,    8,    9,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 6, 0x80000000 | 6,    5,    7,    8,
+    QMetaType::Void, QMetaType::QByteArray, 0x80000000 | 6,    5,    7,
     QMetaType::Void, QMetaType::QByteArray,    5,
 
        0        // eod
@@ -85,6 +104,45 @@ Q_CONSTINIT const QMetaObject TransmitterModel::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'transmitData'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'transmitData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'transmitData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'transmitData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'transmitData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'transmitData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'transmitData'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>
     >,
     nullptr
@@ -97,7 +155,13 @@ void TransmitterModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         (void)_t;
         switch (_id) {
         case 0: _t->configurePort((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 1: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 1: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[6])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[7]))); break;
+        case 2: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[5])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[6]))); break;
+        case 3: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[4])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[5]))); break;
+        case 4: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[4]))); break;
+        case 5: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[3]))); break;
+        case 6: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[2]))); break;
+        case 7: _t->transmitData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
         default: ;
         }
     }
@@ -122,13 +186,13 @@ int TransmitterModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 2;
+        _id -= 8;
     }
     return _id;
 }

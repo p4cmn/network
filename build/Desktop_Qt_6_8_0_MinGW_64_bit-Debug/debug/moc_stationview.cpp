@@ -42,11 +42,19 @@ constexpr auto qt_meta_stringdata_CLASSStationViewENDCLASS = QtMocHelpers::strin
     "configureReceiver",
     "sendData",
     "data",
-    "selectedStationNumber",
-    "uint8_t",
-    "number",
+    "source",
+    "destination",
+    "priority",
     "selectedPriorityLevel",
+    "uint8_t",
     "level",
+    "calculatedTotalStations",
+    "totalStations",
+    "onCycleButtonClicked",
+    "selectedMonitor",
+    "isMonitore",
+    "selectedStationNumber",
+    "number",
     "displayReceivedData"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -60,29 +68,35 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSStationViewENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       5,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   50,    2, 0x06,    1 /* Public */,
-       4,    1,   53,    2, 0x06,    3 /* Public */,
-       5,    1,   56,    2, 0x06,    5 /* Public */,
-       7,    1,   59,    2, 0x06,    7 /* Public */,
-      10,    1,   62,    2, 0x06,    9 /* Public */,
+       1,    1,   68,    2, 0x06,    1 /* Public */,
+       4,    1,   71,    2, 0x06,    3 /* Public */,
+       5,    4,   74,    2, 0x06,    5 /* Public */,
+      10,    1,   83,    2, 0x06,   10 /* Public */,
+      13,    1,   86,    2, 0x06,   12 /* Public */,
+      15,    0,   89,    2, 0x06,   14 /* Public */,
+      16,    1,   90,    2, 0x06,   15 /* Public */,
+      18,    1,   93,    2, 0x06,   17 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      12,    1,   65,    2, 0x0a,   11 /* Public */,
+      20,    1,   96,    2, 0x0a,   19 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString,    3,
-    QMetaType::Void, QMetaType::QByteArray,    6,
-    QMetaType::Void, 0x80000000 | 8,    9,
-    QMetaType::Void, 0x80000000 | 8,   11,
+    QMetaType::Void, QMetaType::QByteArray, QMetaType::UChar, QMetaType::UChar, QMetaType::UChar,    6,    7,    8,    9,
+    QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void, 0x80000000 | 11,   14,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   17,
+    QMetaType::Void, 0x80000000 | 11,   19,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QByteArray,    6,
@@ -108,10 +122,21 @@ Q_CONSTINIT const QMetaObject StationView::staticMetaObject = { {
         // method 'sendData'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
-        // method 'selectedStationNumber'
+        QtPrivate::TypeAndForceComplete<unsigned char, std::false_type>,
+        QtPrivate::TypeAndForceComplete<unsigned char, std::false_type>,
+        QtPrivate::TypeAndForceComplete<unsigned char, std::false_type>,
+        // method 'selectedPriorityLevel'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
-        // method 'selectedPriorityLevel'
+        // method 'calculatedTotalStations'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
+        // method 'onCycleButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'selectedMonitor'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'selectedStationNumber'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<uint8_t, std::false_type>,
         // method 'displayReceivedData'
@@ -129,10 +154,13 @@ void StationView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->configureTransmitter((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 1: _t->configureReceiver((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 2: _t->sendData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
-        case 3: _t->selectedStationNumber((*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[1]))); break;
-        case 4: _t->selectedPriorityLevel((*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[1]))); break;
-        case 5: _t->displayReceivedData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 2: _t->sendData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<uchar>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<uchar>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<uchar>>(_a[4]))); break;
+        case 3: _t->selectedPriorityLevel((*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[1]))); break;
+        case 4: _t->calculatedTotalStations((*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[1]))); break;
+        case 5: _t->onCycleButtonClicked(); break;
+        case 6: _t->selectedMonitor((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 7: _t->selectedStationNumber((*reinterpret_cast< std::add_pointer_t<uint8_t>>(_a[1]))); break;
+        case 8: _t->displayReceivedData((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -152,7 +180,7 @@ void StationView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             }
         }
         {
-            using _t = void (StationView::*)(const QByteArray & );
+            using _t = void (StationView::*)(const QByteArray & , unsigned char , unsigned char , unsigned char );
             if (_t _q_method = &StationView::sendData; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
                 return;
@@ -160,15 +188,36 @@ void StationView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         }
         {
             using _t = void (StationView::*)(uint8_t );
-            if (_t _q_method = &StationView::selectedStationNumber; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &StationView::selectedPriorityLevel; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 3;
                 return;
             }
         }
         {
             using _t = void (StationView::*)(uint8_t );
-            if (_t _q_method = &StationView::selectedPriorityLevel; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &StationView::calculatedTotalStations; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 4;
+                return;
+            }
+        }
+        {
+            using _t = void (StationView::*)();
+            if (_t _q_method = &StationView::onCycleButtonClicked; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 5;
+                return;
+            }
+        }
+        {
+            using _t = void (StationView::*)(bool );
+            if (_t _q_method = &StationView::selectedMonitor; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
+        {
+            using _t = void (StationView::*)(uint8_t );
+            if (_t _q_method = &StationView::selectedStationNumber; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 7;
                 return;
             }
         }
@@ -194,13 +243,13 @@ int StationView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 9;
     }
     return _id;
 }
@@ -220,23 +269,43 @@ void StationView::configureReceiver(const QString & _t1)
 }
 
 // SIGNAL 2
-void StationView::sendData(const QByteArray & _t1)
+void StationView::sendData(const QByteArray & _t1, unsigned char _t2, unsigned char _t3, unsigned char _t4)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 
 // SIGNAL 3
-void StationView::selectedStationNumber(uint8_t _t1)
+void StationView::selectedPriorityLevel(uint8_t _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 
 // SIGNAL 4
-void StationView::selectedPriorityLevel(uint8_t _t1)
+void StationView::calculatedTotalStations(uint8_t _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 4, _a);
+}
+
+// SIGNAL 5
+void StationView::onCycleButtonClicked()
+{
+    QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
+}
+
+// SIGNAL 6
+void StationView::selectedMonitor(bool _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void StationView::selectedStationNumber(uint8_t _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
 }
 QT_WARNING_POP

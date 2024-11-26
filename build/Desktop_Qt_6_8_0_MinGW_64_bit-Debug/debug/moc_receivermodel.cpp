@@ -38,6 +38,7 @@ constexpr auto qt_meta_stringdata_CLASSReceiverModelENDCLASS = QtMocHelpers::str
     "ReceiverModel",
     "dataReceived",
     "",
+    "Frame",
     "data",
     "configurePort",
     "portName",
@@ -65,14 +66,14 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSReceiverModelENDCLASS[] = {
        1,    1,   32,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    1,   35,    2, 0x0a,    3 /* Public */,
-       6,    0,   38,    2, 0x08,    5 /* Private */,
+       5,    1,   35,    2, 0x0a,    3 /* Public */,
+       7,    0,   38,    2, 0x08,    5 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::QByteArray,    3,
+    QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void, QMetaType::QString,    6,
     QMetaType::Void,
 
        0        // eod
@@ -89,7 +90,7 @@ Q_CONSTINIT const QMetaObject ReceiverModel::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<ReceiverModel, std::true_type>,
         // method 'dataReceived'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QByteArray &, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const Frame &, std::false_type>,
         // method 'configurePort'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
@@ -105,7 +106,7 @@ void ReceiverModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         auto *_t = static_cast<ReceiverModel *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->dataReceived((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 0: _t->dataReceived((*reinterpret_cast< std::add_pointer_t<Frame>>(_a[1]))); break;
         case 1: _t->configurePort((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->readData(); break;
         default: ;
@@ -113,7 +114,7 @@ void ReceiverModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (ReceiverModel::*)(const QByteArray & );
+            using _t = void (ReceiverModel::*)(const Frame & );
             if (_t _q_method = &ReceiverModel::dataReceived; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
@@ -153,7 +154,7 @@ int ReceiverModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void ReceiverModel::dataReceived(const QByteArray & _t1)
+void ReceiverModel::dataReceived(const Frame & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
